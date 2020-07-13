@@ -17,7 +17,7 @@ const darkTheme = localStorage.getItem('dark-theme');
 const input = document.querySelector('.js-switch-input');
 const body = document.querySelector('body');
 
-if (darkTheme === 'false') {
+if (!darkTheme || darkTheme === 'false') {
   body.classList.remove(Theme.DARK);
   input.checked = false;
 } else {
@@ -28,7 +28,7 @@ if (darkTheme === 'false') {
 input.addEventListener('change', changeTheme);
 
 function changeTheme(e) {
-  if (input.checked === false) {
+  if (!input.checked) {
     body.classList.remove(Theme.DARK);
   } else {
     body.classList.add(Theme.DARK);
